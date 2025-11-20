@@ -9,6 +9,7 @@ export function AboutSection({ scrollToSection }: { scrollToSection?: (index: nu
   return (
     <section
       ref={ref}
+      id="about"
       className="flex h-screen w-screen shrink-0 snap-start items-center px-4 pt-20 md:px-12 md:pt-0 lg:px-16"
     >
       <div className="mx-auto w-full max-w-7xl">
@@ -21,11 +22,11 @@ export function AboutSection({ scrollToSection }: { scrollToSection?: (index: nu
               }`}
             >
               <h2 className="mb-3 font-sans text-3xl font-light leading-[1.1] tracking-tight text-foreground md:mb-4 md:text-6xl lg:text-7xl">
-                Building the
+                Empowering
                 <br />
-                future of
+                Doctors on
                 <br />
-                <span className="text-foreground/40">digital</span>
+                <span className="text-foreground/40">Social Media</span>
               </h2>
             </div>
 
@@ -36,11 +37,12 @@ export function AboutSection({ scrollToSection }: { scrollToSection?: (index: nu
               style={{ transitionDelay: "200ms" }}
             >
               <p className="max-w-md text-sm leading-relaxed text-foreground/90 md:text-lg">
-                We're a collective of designers, developers, and creative technologists obsessed with crafting
-                exceptional digital experiences.
+                We understand that as a doctor, your priority is your patients. Managing social media shouldn't take
+                away from your practice.
               </p>
               <p className="max-w-md text-sm leading-relaxed text-foreground/90 md:text-lg">
-                Every project is an opportunity to explore new possibilities and push creative boundaries.
+                DocSocial helps you maintain an active, professional online presence with AI-generated content that
+                resonates with your audience.
               </p>
             </div>
           </div>
@@ -48,9 +50,9 @@ export function AboutSection({ scrollToSection }: { scrollToSection?: (index: nu
           {/* Right side - Stats with creative layout */}
           <div className="flex flex-col justify-center space-y-6 md:space-y-12">
             {[
-              { value: "150+", label: "Projects", sublabel: "Delivered worldwide", direction: "right" },
-              { value: "8", label: "Years", sublabel: "Of innovation", direction: "left" },
-              { value: "12", label: "Awards", sublabel: "Industry recognition", direction: "right" },
+              { value: "50+", label: "Specialties", sublabel: "Supported", direction: "right" },
+              { value: "10k+", label: "Posts", sublabel: "Generated", direction: "left" },
+              { value: "BR", label: "Brazil", sublabel: "Focused Market", direction: "right" },
             ].map((stat, i) => {
               const getRevealClass = () => {
                 if (!isVisible) {
@@ -86,11 +88,11 @@ export function AboutSection({ scrollToSection }: { scrollToSection?: (index: nu
           }`}
           style={{ transitionDelay: "750ms" }}
         >
-          <MagneticButton size="lg" variant="primary" onClick={() => scrollToSection?.(4)}>
-            Start a Project
+          <MagneticButton size="lg" variant="primary" href="/signup">
+            Start Creating
           </MagneticButton>
           <MagneticButton size="lg" variant="secondary" onClick={() => scrollToSection?.(1)}>
-            View Our Work
+            See Process
           </MagneticButton>
         </div>
       </div>

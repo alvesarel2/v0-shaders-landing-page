@@ -8,6 +8,7 @@ export function ServicesSection() {
   return (
     <section
       ref={ref}
+      id="features"
       className="flex h-screen w-screen shrink-0 snap-start items-center px-6 pt-20 md:px-12 md:pt-0 lg:px-16"
     >
       <div className="mx-auto w-full max-w-7xl">
@@ -17,31 +18,31 @@ export function ServicesSection() {
           }`}
         >
           <h2 className="mb-2 font-sans text-5xl font-light tracking-tight text-foreground md:text-6xl lg:text-7xl">
-            Capabilities
+            Features
           </h2>
-          <p className="font-mono text-sm text-foreground/60 md:text-base">/ What we bring to the table</p>
+          <p className="font-mono text-sm text-foreground/60 md:text-base">/ Everything you need</p>
         </div>
 
         <div className="grid gap-8 md:grid-cols-2 md:gap-x-16 md:gap-y-12 lg:gap-x-24">
           {[
             {
-              title: "Creative Development",
-              description: "Pushing the boundaries of what's possible on the web",
+              title: "Specialty Tailored",
+              description: "Content specifically designed for your medical field and expertise.",
               direction: "top",
             },
             {
-              title: "Visual Design",
-              description: "Crafting memorable experiences through thoughtful aesthetics",
+              title: "Instagram Ready",
+              description: "Perfectly formatted captions and optimized hashtags for maximum reach.",
               direction: "right",
             },
             {
-              title: "Motion & Animation",
-              description: "Bringing interfaces to life with purposeful movement",
+              title: "AI Visuals",
+              description: "Professional, medical-grade images generated for every post.",
               direction: "left",
             },
             {
-              title: "Technical Strategy",
-              description: "Building scalable solutions that perform beautifully",
+              title: "Time Saving",
+              description: "Create a month's worth of engaging content in just minutes.",
               direction: "bottom",
             },
           ].map((service, i) => (

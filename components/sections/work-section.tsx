@@ -8,6 +8,7 @@ export function WorkSection() {
   return (
     <section
       ref={ref}
+      id="process"
       className="flex h-screen w-screen shrink-0 snap-start items-center px-6 pt-20 md:px-12 md:pt-0 lg:px-16"
     >
       <div className="mx-auto w-full max-w-7xl">
@@ -17,32 +18,32 @@ export function WorkSection() {
           }`}
         >
           <h2 className="mb-2 font-sans text-5xl font-light tracking-tight text-foreground md:text-6xl lg:text-7xl">
-            Featured
+            How it Works
           </h2>
-          <p className="font-mono text-sm text-foreground/60 md:text-base">/ Recent explorations</p>
+          <p className="font-mono text-sm text-foreground/60 md:text-base">/ Simple 3-Step Process</p>
         </div>
 
         <div className="space-y-6 md:space-y-8">
           {[
             {
               number: "01",
-              title: "Kinetic Typography",
-              category: "Interactive Experience",
-              year: "2024",
+              title: "Select Specialty",
+              category: "Tell us your medical field",
+              year: "Step 1",
               direction: "left",
             },
             {
               number: "02",
-              title: "Generative Patterns",
-              category: "Visual System",
-              year: "2024",
+              title: "Get Topic Ideas",
+              category: "Receive trending suggestions",
+              year: "Step 2",
               direction: "right",
             },
             {
               number: "03",
-              title: "Spatial Interface",
-              category: "3D Navigation",
-              year: "2023",
+              title: "Generate Post",
+              category: "Get full text, image & hashtags",
+              year: "Step 3",
               direction: "left",
             },
           ].map((project, i) => (

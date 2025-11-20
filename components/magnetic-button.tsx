@@ -2,6 +2,7 @@
 
 import type React from "react"
 import { useRef } from "react"
+import Link from "next/link"
 
 interface MagneticButtonProps {
   children: React.ReactNode
@@ -9,6 +10,7 @@ interface MagneticButtonProps {
   variant?: "primary" | "secondary" | "ghost"
   size?: "default" | "lg"
   onClick?: () => void
+  href?: string
 }
 
 export function MagneticButton({
@@ -17,12 +19,13 @@ export function MagneticButton({
   variant = "primary",
   size = "default",
   onClick,
+  href,
 }: MagneticButtonProps) {
-  const ref = useRef<HTMLButtonElement>(null)
+  const ref = useRef<HTMLElement>(null)
   const positionRef = useRef({ x: 0, y: 0 })
   const rafRef = useRef<number>()
 
-  const handleMouseMove = (e: React.MouseEvent<HTMLButtonElement>) => {
+  const handleMouseMove = (e: React.MouseEvent<HTMLElement>) => {
     if (!ref.current) return
 
     const rect = ref.current.getBoundingClientRect()
@@ -62,25 +65,35 @@ export function MagneticButton({
     lg: "px-8 py-3.5 text-base",
   }
 
-  return (
-    <button
-      ref={ref}
-      onClick={onClick}
-      onMouseMove={handleMouseMove}
-      onMouseLeave={handleMouseLeave}
-      className={`
+  const commonProps = {
+    ref: ref as any,
+    onMouseMove: handleMouseMove,
+    onMouseLeave: handleMouseLeave,
+    className: `
         relative overflow-hidden rounded-full font-medium
         transition-all duration-300 ease-out will-change-transform
+        inline-flex items-center justify-center whitespace-nowrap
         ${variants[variant]}
         ${sizes[size]}
         ${className}
-      `}
-      style={{
-        transform: "translate3d(0px, 0px, 0)",
-        contain: "layout style paint",
-      }}
-    >
-      <span className="relative z-10">{children}</span>
+      `,
+    style: {
+      transform: "translate3d(0px, 0px, 0)",
+      contain: "layout style paint",
+    } as React.CSSProperties,
+  }
+
+  if (href) {
+    return (
+      <Link href={href} {...commonProps}>
+        <span className="relative z-10 flex items-center justify-center gap-2">{children}</span>
+      </Link>
+    )
+  }
+
+  return (
+    <button onClick={onClick} {...commonProps}>
+      <span className="relative z-10 flex items-center justify-center gap-2">{children}</span>
     </button>
   )
 }
