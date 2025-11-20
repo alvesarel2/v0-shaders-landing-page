@@ -28,15 +28,29 @@ export default function LoginPage() {
     setError(null)
 
     try {
-      const { error } = await supabase.auth.signInWithPassword({
+      console.log("[v0] Login - Attempting sign in for:", email)
+
+      const { data, error } = await supabase.auth.signInWithPassword({
         email,
         password,
       })
 
-      if (error) throw error
+      if (error) {
+        console.log("[v0] Login - Error:", error.message)
+        throw error
+      }
 
-      router.push("/dashboard")
+      console.log("[v0] Login - Success! Session:", !!data.session)
+      console.log("[v0] Login - User:", data.user?.email)
+
+      if (data.session) {
+        await new Promise((resolve) => setTimeout(resolve, 100))
+        window.location.href = "/dashboard" // Use full page navigation instead of router.push
+      } else {
+        throw new Error("Failed to establish session")
+      }
     } catch (err: any) {
+      console.log("[v0] Login - Catch error:", err.message)
       setError(err.message)
     } finally {
       setLoading(false)

@@ -2,9 +2,6 @@
 
 import { useState, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
-import { CustomCursor } from "@/components/custom-cursor"
-import { GrainOverlay } from "@/components/grain-overlay"
-import { ShaderBackground } from "@/components/shader-background"
 import { MagneticButton } from "@/components/magnetic-button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
@@ -116,12 +113,6 @@ export default function DashboardPage() {
 
   return (
     <main className="relative min-h-screen w-full overflow-hidden bg-background flex flex-col">
-      <CustomCursor />
-      <GrainOverlay />
-      <ShaderBackground />
-
-      {/* Removed Header as it is now in Layout */}
-
       <div className="relative z-10 flex-1 flex items-center justify-center p-6">
         <div className="w-full max-w-2xl">
           <AnimatePresence mode="wait">
